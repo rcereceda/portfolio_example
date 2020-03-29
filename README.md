@@ -1,8 +1,8 @@
-# portfolio_example
+# Simple Portfolio Example
 
 Simple portfolio example written in Ruby.
 
-The current example can handle only one Stock at a time. If we add name attribute to Stock will allow to manage multiple Stocks.
+The current example can handle only one Stock at a time. If we add a name attribute to Stock class it will allow to manage multiple Stocks.
 
 ## Usage
 
@@ -10,7 +10,7 @@ The current example can handle only one Stock at a time. If we add name attribut
 require_relative 'base'
 ```
 
-If you want to have stocks, portfolio and transactions for example, you can test with this variables:
+If you want to have stocks, a portfolio and transactions for example, you can test with this variables:
 
 ```
 Stock.new("26/03/2018", 10)

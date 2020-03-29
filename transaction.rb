@@ -4,7 +4,7 @@ class Transaction
   def initialize(date, holdings)
     @date = Date.parse(date)
     @holdings = holdings
-    self.stock = Stock.find_by_date(date)
+    self.stock = Stock.find_by_date(Date.parse(date))
   end
 
   def profit(end_date)

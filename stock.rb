@@ -15,6 +15,6 @@ class Stock
   end
 
   def self.find_by_date(date)
-    @all.find { |stock| stock.date == Date.parse(date) }
+    @all.find { |stock| stock.date == date }
   end
 end

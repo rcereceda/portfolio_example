@@ -4,6 +4,8 @@ class Portfolio
   end
 
   def add_transaction(transaction)
+    return unless transaction.stock
+
     @transactions << transaction
   end
 
@@ -13,15 +15,21 @@ class Portfolio
         transaction.date <= Date.parse(end_date)
     end
 
-    { profit: transactions_profit(transactions, end_date),
+    { profit: transactions_profit(transactions),
       annualized_return: annualized_return(transactions) }
   end
 
-  def transactions_profit(transactions, end_date)
+  def transactions_profit(transactions)
+    return if transactions.empty?
+
+    end_date = transactions.max_by(&:date)&.date
+
     transactions.sum { |transaction| transaction.profit(end_date) }
   end
 
   def annualized_return(transactions)
+    return if transactions.empty?
+
     first_price = price(transactions.min_by(&:date))
     last_price  = price(transactions.max_by(&:date)).to_f
     time        = years_between(transactions).to_f
